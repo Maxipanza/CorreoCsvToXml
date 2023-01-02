@@ -118,6 +118,10 @@ while (!parser.EndOfData)
         }
         if (i == 13 && unidad != null && IsNotEmpty(fields[i]))
         {
+            unidad.SetAttribute("proveedorProveedores", fields[i]);
+        }
+        if (i == 14 && unidad != null && IsNotEmpty(fields[i]))
+        {
             unidad.SetAttribute("tipoVenta", fields[i]);
         }
         brands.AppendChild(brand);
