@@ -105,10 +105,18 @@ while (!parser.EndOfData)
         }
         if (i == 10 && unidad != null && IsNotEmpty(fields[i]))
         {
+            if (fields[i].Contains(","))
+            {
+                fields[i] = fields[i].Replace(",", ".");
+            }
             unidad.SetAttribute("lat", fields[i]);
         }
         if (i == 11 && unidad != null && IsNotEmpty(fields[i]))
         {
+            if (fields[i].Contains(","))
+            {
+                fields[i] = fields[i].Replace(",", ".");
+            }
             unidad.SetAttribute("long", fields[i]);
         }
         if (i == 12 && unidad != null && IsNotEmpty(fields[i]))
