@@ -196,6 +196,8 @@ string FormatXML(string xml)
 
 Console.WriteLine("Ingrese el nombre del archivo XML: ");
 string nombreArchivo = Console.ReadLine();
+Console.WriteLine("Ingrese el mail al que se le va a enviar el XML: ");
+string mailQueRecibeXML = Console.ReadLine();
 Console.WriteLine(FormatXML(root.OuterXml));
 var archivoGuardado = $@"{rutaDescargas}\{nombreArchivo}.xml";
 root.Save(archivoGuardado);
@@ -205,7 +207,7 @@ try
     SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
     mail.From = new MailAddress("runonenotification@gmail.com");
-    mail.To.Add("maximiliano@run0km.com");
+    mail.To.Add(mailQueRecibeXML);
     mail.Subject = "envio de csv";
     mail.Body = "Generaste el csv de:" + nombreArchivo;
 
